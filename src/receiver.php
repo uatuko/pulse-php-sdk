@@ -1,6 +1,6 @@
 <?php
 
-require_once( 'pulse/utils.php' );
+require_once( 'loader.php' );
 
 echo "pulse message receiver, version 1.0.0\n";
 
@@ -35,11 +35,11 @@ while ( true ) {
 	// read messages
 	do {
 
-		if ( $msg = pulse\read_msg( $m_sock ) ) {
+		if ( $msg = pulse\utils::read_msg( $m_sock ) ) {
 
 			// echo( "msg: " . $msg . "\n" );
 
-			$data = pulse\parse_msg( $msg );
+			$data = pulse\utils::parse_msg( $msg );
 
 			if (! $data['error'] ) {
 				echo( json_encode( $data ) . "\n" );

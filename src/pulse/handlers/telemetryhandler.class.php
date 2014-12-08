@@ -2,10 +2,7 @@
 
 namespace pulse\handlers;
 
-require_once( 'interfaces.php' );
-
-
-class TelemetryHandler implements HandlerInterface {
+class TelemetryHandler implements \pulse\interfaces\handler {
 
 	public function parse( $body ) {
 
