@@ -35,11 +35,11 @@ while ( true ) {
 	// read messages
 	do {
 
-		if ( $msg = pulse\utils::read_msg( $m_sock ) ) {
+		if ( $msg = \pulse\utils::read_msg( $m_sock ) ) {
 
 			// echo( "msg: " . $msg . "\n" );
 
-			$data = pulse\utils::parse_msg( $msg );
+			$data = \pulse\utils::parse_msg( $msg );
 
 			if (! $data['error'] ) {
 				echo( json_encode( $data ) . "\n" );
