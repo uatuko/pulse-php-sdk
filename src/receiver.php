@@ -36,7 +36,17 @@ while ( true ) {
 	do {
 
 		if ( $msg = pulse\read_msg( $m_sock ) ) {
-			echo( "msg: " . $msg . "\n" );
+
+			// echo( "msg: " . $msg . "\n" );
+
+			$data = pulse\parse_msg( $msg );
+
+			if (! $data['error'] ) {
+				echo( json_encode( $data ) . "\n" );
+			} else {
+				echo( "failed to parse message\n" );
+			}
+
 		} else {
 			echo( "msg not received\n" );
 		}
